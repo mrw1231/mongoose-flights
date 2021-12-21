@@ -19,9 +19,8 @@ const flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        default: (Date.now() + 7*24*60*60*1000),
+        default: Date.now,
     },
-    timestamps: true,
 });
 
 // Compile the schema into a model and export it
