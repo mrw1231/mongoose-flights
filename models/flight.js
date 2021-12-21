@@ -14,14 +14,17 @@ const flightSchema = new Schema({
     },
     flightNo: {
         type: Number,
-        min: [10, 'Too Short. Try again.'],
-        max: [9999, 'Too long. Try again.'],
+        min: 10,
+        max: 9999,
     },
     departs: {
         type: Date,
-        default: Date.now,
-    },
-});
+        default: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000)),
+    }, 
+    }, {
+    timestamps: true
+    }
+);
 
 // Compile the schema into a model and export it
 module.exports = mongoose.model('Flight', flightSchema);
